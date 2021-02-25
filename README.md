@@ -4,4 +4,4 @@ First one needs a compiled version of the sudoku solver available [here](https:/
 The compiled file name should replace the `<compiled solver name>` in the os.system() call in the app.py file.
 The compiled file should be in the same directory as the app.py file.
 ## Usage
-Once the code is set up, one may simply run using `python app.py`
+Once the code is set up, one may simply run using `python app.py` and connecting to localhost in the browser.
