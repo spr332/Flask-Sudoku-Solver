@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sudoku Solver</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>Sudoku Solver</h1>
+  <p>Containerized and Functional!</p> 
+  <p>(Though if you put an invalid puzzle in, don't expect it to work)</p>
+</div>
+
+  <form action="/solve" method="post">
+  <table class="table table-bordered">
+  <tbody>
+  <tr>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="001">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="002">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="003">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="010">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="011">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="012">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="019">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="020">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="021">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="004">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="005">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="006">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="013">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="014">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="015">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="022">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="023">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="024">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="007">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="008">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="009">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="016">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="017">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="018">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="025">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="026">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="027">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  </tr>
+  <tr>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="028">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="029">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="030">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="037">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="038">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="039">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="046">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="047">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="048">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="031">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="032">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="033">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="040">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="041">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="042">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="049">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="050">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="051">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="034">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="035">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="036">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="043">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="044">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="045">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="052">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="053">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="054">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  </tr>
+  <tr>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="055">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="056">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="057">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="064">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="065">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="066">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="073">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="074">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="075">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="058">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="059">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="060">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="067">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="068">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="069">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="076">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="077">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="078">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  <td> 
+      <table class="table table-bordered">
+      <tbody>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="061">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="062">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="063">
+      </td>
+      </tr>
+      <tr>
+      <td> 
+        <input type="text" class="form-control" name="070">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="071">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="072">
+      </td>
+      </tr>
+          <tr>
+      <td> 
+        <input type="text" class="form-control" name="079">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="080">
+      </td>
+      <td> 
+        <input type="text" class="form-control" name="081">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  <input type="submit" value="Submit">
+  </form>
+</body>

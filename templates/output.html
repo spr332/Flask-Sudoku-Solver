@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sudoku Solver</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>Sudoku Solver</h1>
+  <p>Containerized and Functional!</p> 
+  <p>(Though if you put an invalid puzzle in, don't expect it to work)</p>
+</div>
+
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["001"] }}
+    </td>
+    <td> 
+{{ item["002"] }}
+    </td>
+    <td> 
+{{ item["003"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["010"] }}
+    </td>
+    <td> 
+{{ item["011"] }}
+    </td>
+    <td> 
+{{ item["012"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["007"] }}
+    </td>
+    <td> 
+{{ item["008"] }}
+    </td>
+    <td> 
+{{ item["009"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["004"] }}
+    </td>
+    <td> 
+{{ item["005"] }}
+    </td>
+    <td> 
+{{ item["006"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["013"] }}
+    </td>
+    <td> 
+{{ item["014"] }}
+    </td>
+    <td> 
+{{ item["015"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["016"] }}
+    </td>
+    <td> 
+{{ item["017"] }}
+    </td>
+    <td> 
+{{ item["018"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["007"] }}
+    </td>
+    <td> 
+{{ item["008"] }}
+    </td>
+    <td> 
+{{ item["009"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["016"] }}
+    </td>
+    <td> 
+{{ item["017"] }}
+    </td>
+    <td> 
+{{ item["018"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["025"] }}
+    </td>
+    <td> 
+{{ item["026"] }}
+    </td>
+    <td> 
+{{ item["027"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+</tr>
+<tr>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["028"] }}
+    </td>
+    <td> 
+{{ item["029"] }}
+    </td>
+    <td> 
+{{ item["030"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["037"] }}
+    </td>
+    <td> 
+{{ item["038"] }}
+    </td>
+    <td> 
+{{ item["039"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["046"] }}
+    </td>
+    <td> 
+{{ item["047"] }}
+    </td>
+    <td> 
+{{ item["048"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["031"] }}
+    </td>
+    <td> 
+{{ item["032"] }}
+    </td>
+    <td> 
+{{ item["033"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["040"] }}
+    </td>
+    <td> 
+{{ item["041"] }}
+    </td>
+    <td> 
+{{ item["042"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["049"] }}
+    </td>
+    <td> 
+{{ item["050"] }}
+    </td>
+    <td> 
+{{ item["051"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["034"] }}
+    </td>
+    <td> 
+{{ item["035"] }}
+    </td>
+    <td> 
+{{ item["036"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["043"] }}
+    </td>
+    <td> 
+{{ item["044"] }}
+    </td>
+    <td> 
+{{ item["045"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["052"] }}
+    </td>
+    <td> 
+{{ item["053"] }}
+    </td>
+    <td> 
+{{ item["054"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+</tr>
+<tr>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["055"] }}
+    </td>
+    <td> 
+{{ item["056"] }}
+    </td>
+    <td> 
+{{ item["057"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["064"] }}
+    </td>
+    <td> 
+{{ item["065"] }}
+    </td>
+    <td> 
+{{ item["066"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["073"] }}
+    </td>
+    <td> 
+{{ item["074"] }}
+    </td>
+    <td> 
+{{ item["075"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["058"] }}
+    </td>
+    <td> 
+{{ item["059"] }}
+    </td>
+    <td> 
+{{ item["060"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["067"] }}
+    </td>
+    <td> 
+{{ item["068"] }}
+    </td>
+    <td> 
+{{ item["069"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["076"] }}
+    </td>
+    <td> 
+{{ item["077"] }}
+    </td>
+    <td> 
+{{ item["078"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+<td> 
+    <table class="table table-bordered">
+    <tbody>
+    <tr>
+    <td> 
+{{ item["061"] }}
+    </td>
+    <td> 
+{{ item["062"] }}
+    </td>
+    <td> 
+{{ item["063"] }}
+    </td>
+    </tr>
+    <tr>
+    <td> 
+{{ item["070"] }}
+    </td>
+    <td> 
+{{ item["071"] }}
+    </td>
+    <td> 
+{{ item["072"] }}
+    </td>
+    </tr>
+        <tr>
+    <td> 
+{{ item["079"] }}
+    </td>
+    <td> 
+{{ item["080"] }}
+    </td>
+    <td> 
+{{ item["081"] }}
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</td>
+</tr>
+</tbody>
+</table>
+<form action="/" ><input type="submit" value="Back"></form>
+</body>
